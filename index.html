@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how AI is transforming financial skills. From Excel shortcuts to AI commands - see what's changing in finance.">
+    <meta name="author" content="Financial Skills Transformation Hub">
+    
+    <!-- Open Graph tags for LinkedIn sharing -->
+    <meta property="og:title" content="Your Excel Skills Aren't Dead. They're Evolving.">
+    <meta property="og:description" content="See how 10 financial skills are transforming with AI. From 5 hours to 5 minutes.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/667eea/ffffff?text=Financial+Skills+AI+Transformation">
+    <meta property="og:url" content="https://yourusername.github.io/financial-skills-dashboard">
+    <meta property="og:type" content="website">
+    
+    <title>Financial Skills AI Transformation Dashboard</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dashboard-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+        
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .skill-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .skill-badge {
+            background: #4ecdc4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .skill-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2d3436;
+            margin: 20px 0 10px 0;
+        }
+        
+        .skill-description {
+            color: #636e72;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .skill-description strong {
+            color: #2d3436;
+            font-weight: 600;
+        }
+        
+        .skill-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .stat-box {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-box-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-box-label {
+            font-size: 11px;
+            color: #636e72;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+        
+        .ai-replacement {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 25px;
+        }
+        
+        .ai-icon {
+            font-size: 20px;
+        }
+        
+        .progress-section {
+            margin-bottom: 30px;
+        }
+        
+        .progress-label {
+            font-size: 12px;
+            color: #636e72;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 10px;
+            width: 100%;
+            animation: progressAnimation 2s ease-out;
+        }
+        
+        @keyframes progressAnimation {
+            from { width: 0; }
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .action-button {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 52px;
+        }
+        
+        .primary-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .secondary-button {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .secondary-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .button-icon {
+            font-size: 18px;
+        }
+        
+        /* Comparison Screen Styles */
+        .comparison-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .comparison-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            text-align: center;
+        }
+        
+        .comparison-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .ai-tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .ai-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tool-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .openai-logo {
+            background: linear-gradient(135deg, #10a37f, #1a7f64);
+        }
+        
+        .claude-logo {
+            background: linear-gradient(135deg, #d4a574, #b8935f);
+        }
+        
+        .perplexity-logo {
+            background: linear-gradient(135deg, #20b2aa, #17968e);
+        }
+        
+        .gemini-logo {
+            background: linear-gradient(135deg, #4285f4, #346fdb);
+        }
+        
+        .tool-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3436;
+        }
+        
+        .tool-tagline {
+            font-size: 14px;
+            color: #636e72;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .pros-cons-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .pros-list, .cons-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pros-list li, .cons-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #636e72;
+        }
+        
+        .pros-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        .cons-list li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .best-for {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .best-for-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .best-for-text {
+            font-size: 14px;
+            color: #2d3436;
+            font-weight: 500;
+        }
+        
+        .tool-link {
+            font-size: 14px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .tool-link:hover {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+        
+        /* Examples Screen Styles */
+        .examples-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f9fa;
+            z-index: 1000;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .examples-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .examples-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            text-align: center;
+        }
+        
+        .examples-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .examples-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .example-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .example-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .example-tool-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .example-tool-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .example-tool-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3436;
+        }
+        
+        .example-task {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .example-task-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .example-task-text {
+            font-size: 16px;
+            color: #2d3436;
+            font-weight: 500;
+        }
+        
+        .example-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .example-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .example-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .example-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #636e72;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .prompt-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #2d3436;
+            border: 1px solid #e9ecef;
+            margin-bottom: 10px;
+        }
+        
+        .output-preview {
+            background: #2d3436;
+            color: #4ecdc4;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .key-benefit {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3436;
+            text-align: center;
+        }
+        
+        .time-saved {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4ecdc4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="dashboard-title">Your Excel Skills Aren't Dead.<br>They're Evolving.</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-header">
+                <div class="skill-icon-wrapper">📊</div>
+                <div class="skill-badge" style="background: #4ecdc4;">UPGRADING</div>
+            </div>
+            
+            <h3 class="skill-title">From Excel Ninja to AI Architect</h3>
+            <p class="skill-description">
+                Alt+E+S+V. Ctrl+Shift+Enter. F4 to lock cells.<br>
+                Once the secret handshake of finance pros.<br>
+                Now? One sentence builds your entire model.<br>
+                <strong>The muscle memory is dead. The thinking lives on.</strong>
+            </p>
+            
+            <div class="skill-stats">
+                <div class="stat-box">
+                    <span class="stat-box-value">5 min</span>
+                    <span class="stat-box-label">vs 5 hours</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-box-value">Zero</span>
+                    <span class="stat-box-label">Shortcuts Needed</span>
+                </div>
+            </div>
+            
+            <div class="ai-replacement">
+                <span class="ai-icon">🤖</span>
+                <span>"Build me a merger model" → Complete Excel file in 30 seconds</span>
+            </div>
+            
+            <div class="progress-section">
+                <div class="progress-label">
+                    <span>AI mastery of this domain</span>
+                    <span>Complete</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-button primary-button" onclick="showAIComparison()">
+                    <span class="button-icon">🚀</span>
+                    <span>Learn AI Modeling</span>
+                </button>
+                <button class="action-button secondary-button" onclick="showExamples()">
+                    <span class="button-icon">💡</span>
+                    <span>View Examples</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AI Comparison Screen -->
+    <div class="comparison-screen" id="aiComparison">
+        <button class="back-button" onclick="hideAIComparison()">
+            <span>←</span>
+            <span>Back</span>
+        </button>
+        
+        <div class="comparison-container">
+            <div class="comparison-header">
+                <h2 class="comparison-title">Choose Your AI Financial Modeling Tool</h2>
+                <p class="comparison-subtitle">Compare the top AI assistants for Excel and financial analysis</p>
+            </div>
+            
+            <div class="ai-tools-grid">
+                <!-- ChatGPT -->
+                <div class="ai-tool-card">
+                    <div class="tool-header">
+                        <div class="tool-logo openai-logo">🤖</div>
+                        <div>
+                            <h3 class="tool-name">ChatGPT Plus</h3>
+                            <a href="https://chat.openai.com" target="_blank" class="tool-link">Visit ChatGPT →</a>
+                        </div>
+                    </div>
+                    <p class="tool-tagline">"The Excel power user's best friend"</p>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #4ecdc4;">✓</span>
+                            <span>Pros</span>
+                        </h4>
+                        <ul class="pros-list">
+                            <li>Advanced Data Analysis for direct Excel manipulation</li>
+                            <li>Can read, edit, and create Excel files</li>
+                            <li>Python code generation for complex calculations</li>
+                            <li>Huge community and tutorials</li>
+                            <li>Custom GPTs for specific finance tasks</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #ff6b6b;">×</span>
+                            <span>Cons</span>
+                        </h4>
+                        <ul class="cons-list">
+                            <li>Can hallucinate financial formulas</li>
+                            <li>Limited to 40 messages/3 hours</li>
+                            <li>Sometimes slow during peak hours</li>
+                            <li>May struggle with very large datasets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-for">
+                        <div class="best-for-title">Best For</div>
+                        <div class="best-for-text">Investment bankers building complex models from scratch</div>
+                    </div>
+                </div>
+                
+                <!-- Claude -->
+                <div class="ai-tool-card">
+                    <div class="tool-header">
+                        <div class="tool-logo claude-logo">🧠</div>
+                        <div>
+                            <h3 class="tool-name">Claude Pro</h3>
+                            <a href="https://claude.ai" target="_blank" class="tool-link">Visit Claude →</a>
+                        </div>
+                    </div>
+                    <p class="tool-tagline">"The thoughtful analyst's choice"</p>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #4ecdc4;">✓</span>
+                            <span>Pros</span>
+                        </h4>
+                        <ul class="pros-list">
+                            <li>Superior at explaining complex financial concepts</li>
+                            <li>Projects feature for persistent workspaces</li>
+                            <li>Excellent at spotting errors in models</li>
+                            <li>Can analyze multiple documents at once</li>
+                            <li>More accurate with financial regulations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #ff6b6b;">×</span>
+                            <span>Cons</span>
+                        </h4>
+                        <ul class="cons-list">
+                            <li>Cannot directly create Excel files</li>
+                            <li>No web browsing for real-time data</li>
+                            <li>Limited code execution capabilities</li>
+                            <li>Fewer finance-specific integrations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-for">
+                        <div class="best-for-title">Best For</div>
+                        <div class="best-for-text">Financial analysts who need deep analysis and error checking</div>
+                    </div>
+                </div>
+                
+                <!-- Perplexity -->
+                <div class="ai-tool-card">
+                    <div class="tool-header">
+                        <div class="tool-logo perplexity-logo">🔍</div>
+                        <div>
+                            <h3 class="tool-name">Perplexity Pro</h3>
+                            <a href="https://perplexity.ai" target="_blank" class="tool-link">Visit Perplexity →</a>
+                        </div>
+                    </div>
+                    <p class="tool-tagline">"Real-time market intelligence"</p>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #4ecdc4;">✓</span>
+                            <span>Pros</span>
+                        </h4>
+                        <ul class="pros-list">
+                            <li>Real-time financial data and news</li>
+                            <li>Sources every claim with citations</li>
+                            <li>Excellent for market research</li>
+                            <li>Can pull latest earnings data</li>
+                            <li>Great for competitive analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #ff6b6b;">×</span>
+                            <span>Cons</span>
+                        </h4>
+                        <ul class="cons-list">
+                            <li>Not designed for Excel manipulation</li>
+                            <li>Limited financial modeling capabilities</li>
+                            <li>Can't create complex formulas</li>
+                            <li>Better for research than building</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-for">
+                        <div class="best-for-title">Best For</div>
+                        <div class="best-for-text">Equity researchers needing current market data</div>
+                    </div>
+                </div>
+                
+                <!-- Gemini -->
+                <div class="ai-tool-card">
+                    <div class="tool-header">
+                        <div class="tool-logo gemini-logo">✨</div>
+                        <div>
+                            <h3 class="tool-name">Gemini Advanced</h3>
+                            <a href="https://gemini.google.com" target="_blank" class="tool-link">Visit Gemini →</a>
+                        </div>
+                    </div>
+                    <p class="tool-tagline">"Google's integrated powerhouse"</p>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #4ecdc4;">✓</span>
+                            <span>Pros</span>
+                        </h4>
+                        <ul class="pros-list">
+                            <li>Direct integration with Google Sheets</li>
+                            <li>Can access your Google Drive files</li>
+                            <li>Excellent for collaborative work</li>
+                            <li>Strong mathematical reasoning</li>
+                            <li>Free tier available</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pros-cons-section">
+                        <h4 class="section-title">
+                            <span style="color: #ff6b6b;">×</span>
+                            <span>Cons</span>
+                        </h4>
+                        <ul class="cons-list">
+                            <li>Less finance-specific training</li>
+                            <li>May struggle with complex models</li>
+                            <li>Limited Excel support (Sheets only)</li>
+                            <li>Newer, less proven for finance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-for">
+                        <div class="best-for-title">Best For</div>
+                        <div class="best-for-text">Teams already using Google Workspace</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-header" style="background: white; color: #2d3436;">
+                <h3 style="font-size: 24px; margin-bottom: 15px;">🎯 Quick Recommendation</h3>
+                <p style="font-size: 16px; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                    <strong>For Investment Banking:</strong> Start with ChatGPT Plus for Excel file manipulation<br>
+                    <strong>For Financial Analysis:</strong> Use Claude Pro for complex reasoning and accuracy<br>
+                    <strong>For Market Research:</strong> Choose Perplexity Pro for real-time data<br>
+                    <strong>For Team Collaboration:</strong> Go with Gemini if you're in Google ecosystem
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Examples Screen -->
+    <div class="examples-screen" id="examplesScreen">
+        <button class="back-button" onclick="hideExamples()">
+            <span>←</span>
+            <span>Back</span>
+        </button>
+        
+        <div class="examples-container">
+            <div class="examples-header">
+                <h2 class="examples-title">Real Examples: Excel Tasks in Seconds</h2>
+                <p class="examples-subtitle">See how each AI tool transforms hours of work into simple commands</p>
+            </div>
+            
+            <!-- ChatGPT Example -->
+            <div class="example-card">
+                <div class="time-saved">Saves 3 hours</div>
+                <div class="example-header">
+                    <div class="example-tool-info">
+                        <div class="example-tool-logo openai-logo">🤖</div>
+                        <h3 class="example-tool-name">ChatGPT Plus</h3>
+                    </div>
+                </div>
+                
+                <div class="example-task">
+                    <div class="example-task-label">Financial Modeling Task</div>
+                    <div class="example-task-text">Build a complete DCF model for a SaaS company with $50M ARR</div>
+                </div>
+                
+                <div class="example-content">
+                    <div class="example-section">
+                        <div class="example-section-title">Your Prompt</div>
+                        <div class="prompt-box">
+                            "Create a DCF model for a SaaS company with:<br>
+                            - $50M ARR growing 30% annually<br>
+                            - 80% gross margins<br>
+                            - 15% EBITDA margins<br>
+                            Include revenue projections, FCF calculations, and terminal value with 3% growth"
+                        </div>
+                    </div>
+                    
+                    <div class="example-section">
+                        <div class="example-section-title">AI Output</div>
+                        <div class="output-preview">
+                            ✓ Complete Excel file generated<br>
+                            ✓ 5-year revenue projections<br>
+                            ✓ Detailed FCF calculations<br>
+                            ✓ WACC sensitivity analysis<br>
+                            ✓ Terminal value calculation<br>
+                            ✓ Interactive charts included<br>
+                            ✓ Ready for download
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-benefit">
+                    💡 ChatGPT creates the actual Excel file you can download and modify immediately
+                </div>
+            </div>
+            
+            <!-- Claude Example -->
+            <div class="example-card">
+                <div class="time-saved">Saves 2 hours</div>
+                <div class="example-header">
+                    <div class="example-tool-info">
+                        <div class="example-tool-logo claude-logo">🧠</div>
+                        <h3 class="example-tool-name">Claude Pro</h3>
+                    </div>
+                </div>
+                
+                <div class="example-task">
+                    <div class="example-task-label">Model Review Task</div>
+                    <div class="example-task-text">Review and find errors in a complex LBO model</div>
+                </div>
+                
+                <div class="example-content">
+                    <div class="example-section">
+                        <div class="example-section-title">Your Prompt</div>
+                        <div class="prompt-box">
+                            "I'm uploading an LBO model for a $500M acquisition. Please:<br>
+                            1. Check all formulas for errors<br>
+                            2. Verify debt waterfall logic<br>
+                            3. Validate IRR calculations<br>
+                            4. Identify any circular references<br>
+                            5. Suggest improvements"
+                        </div>
+                    </div>
+                    
+                    <div class="example-section">
+                        <div class="example-section-title">AI Output</div>
+                        <div class="output-preview">
+                            🚨 Found 3 critical errors:<br>
+                            1. Circular reference in row 247<br>
+                            2. DSCR calculation missing interest<br>
+                            3. Exit multiple not flowing through<br><br>
+                            📊 Detailed explanations provided<br>
+                            ✓ Step-by-step fixes suggested<br>
+                            ✓ Best practices recommendations
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-benefit">
+                    💡 Claude excels at deep analysis and catching errors humans miss in complex models
+                </div>
+            </div>
+            
+            <!-- Perplexity Example -->
+            <div class="example-card">
+                <div class="time-saved">Saves 4 hours</div>
+                <div class="example-header">
+                    <div class="example-tool-info">
+                        <div class="example-tool-logo perplexity-logo">🔍</div>
+                        <h3 class="example-tool-name">Perplexity Pro</h3>
+                    </div>
+                </div>
+                
+                <div class="example-task">
+                    <div class="example-task-label">Market Research Task</div>
+                    <div class="example-task-text">Build a competitive analysis model with real-time data</div>
+                </div>
+                
+                <div class="example-content">
+                    <div class="example-section">
+                        <div class="example-section-title">Your Prompt</div>
+                        <div class="prompt-box">
+                            "Create a competitive analysis for cloud computing companies:<br>
+                            - Latest revenue figures<br>
+                            - Growth rates and margins<br>
+                            - Market share data<br>
+                            - Recent M&A activity<br>
+                            - Analyst price targets"
+                        </div>
+                    </div>
+                    
+                    <div class="example-section">
+                        <div class="example-section-title">AI Output</div>
+                        <div class="output-preview">
+                            📊 Real-time data compiled:<br>
+                            AWS: $90.8B revenue (12% growth)<br>
+                            Azure: $25.5B revenue (27% growth)<br>
+                            GCP: $9.5B revenue (35% growth)<br><br>
+                            ✓ 15 sourced data points<br>
+                            ✓ Links to earnings reports<br>
+                            ✓ Updated analyst consensus
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-benefit">
+                    💡 Perplexity provides real-time market data with sources - perfect for research
+                </div>
+            </div>
+            
+            <!-- Gemini Example -->
+            <div class="example-card">
+                <div class="time-saved">Saves 1.5 hours</div>
+                <div class="example-header">
+                    <div class="example-tool-info">
+                        <div class="example-tool-logo gemini-logo">✨</div>
+                        <h3 class="example-tool-name">Gemini Advanced</h3>
+                    </div>
+                </div>
+                
+                <div class="example-task">
+                    <div class="example-task-label">Collaborative Task</div>
+                    <div class="example-task-text">Create a shared budget model in Google Sheets for team collaboration</div>
+                </div>
+                
+                <div class="example-content">
+                    <div class="example-section">
+                        <div class="example-section-title">Your Prompt</div>
+                        <div class="prompt-box">
+                            "Create a department budget template in Google Sheets:<br>
+                            - Monthly budget vs actual<br>
+                            - Variance analysis<br>
+                            - YTD summaries<br>
+                            - Automatic alerts for overruns<br>
+                            - Share with team@company.com"
+                        </div>
+                    </div>
+                    
+                    <div class="example-section">
+                        <div class="example-section-title">AI Output</div>
+                        <div class="output-preview">
+                            ✓ Google Sheet created<br>
+                            ✓ Formulas auto-populated<br>
+                            ✓ Conditional formatting added<br>
+                            ✓ Data validation rules set<br>
+                            ✓ Shared with team members<br>
+                            ✓ Comments added for guidance<br>
+                            ✓ Version history enabled
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-benefit">
+                    💡 Gemini directly integrates with Google Workspace for seamless team collaboration
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showAIComparison() {
+            document.getElementById('aiComparison').style.display = 'block';
+        }
+        
+        function hideAIComparison() {
+            document.getElementById('aiComparison').style.display = 'none';
+        }
+        
+        function showExamples() {
+            document.getElementById('examplesScreen').style.display = 'block';
+        }
+        
+        function hideExamples() {
+            document.getElementById('examplesScreen').style.display = 'none';
+        }
+    </script>
+    
+    <!-- GitHub Pages Analytics (Optional - replace with your Google Analytics ID) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+</body>
+</html>
